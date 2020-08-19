@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Log Uploader</title>
+    <link id ="styler" rel="stylesheet" href="../includes/styles/slate.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="../includes/styles/styles.css">
+    <script>
+      require(`../model/style-loader.js`);
+    </script>
+    <script src="../includes/min-js/jquery.min.js" onload="window.$ = window.jQuery = module.exports;"></script>
+    <script src="../includes/min-js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="d-flex flex-column" style="overflow:hidden;">
+  <div id="electron-titlebar" class="drag" ></div>
+  <div id="row electron-titlebar" style="padding-left: -2em;">
+    <div style="color: var(--white); background-color:var(--primary); width: 100%; height: 100%; text-align: center; line-height: 29px; ">
+      Log Uploader
+    </div>
+  </div>
+
+  <div id="body-2" class="d-flex flex-column" style="height: 100%;">
+    <div class="container-fluid flex-fill">
+      <!--Top Row Buttons-->
+      <div class="row justify-content-center mt-2 mb-1">
+        <button id = "btnSettings" type="button" class="col-sm-2 btn btn-primary btn-sm" onclick="this.blur();" style="border-radius: 5px 0px 0px 5px;">Settings</button>
+        <button id = "btnUpload" type="button" class="col-sm-2 btn btn-primary btn-sm" onclick="this.blur();" style="border-radius: 0px;">Upload Latest</button>
+        <button id = "btnDiscord" type="button" class="col-sm-2 btn btn-primary btn-sm" onclick="this.blur();" style="border-radius: 0px 5px 5px 0px;">Send To Discord</button>
+      </div>
+      <!--Search-->
+      <div class="row justify-content-center mt-1">
+        <div class="row col-sm-12">
+          <input id="bossTable_search" type="search" class="form-control" placeholder="Search" aria-controls="bossTable" placeholder="Search">
+        </div>
+      </div>
+      <!--Filter-->
+      <div class="row justify-content-center mb-1">
+        <!--
+        <div class="col col-sm-1 align-self-center mt-1 ">
+          <label class="font-weight-bolder lead text-center">Filters:</label>
+        </div>
+        -->
+        <div class="btn-group col col-sm-12" role="group" aria-label="Basic example">
+          <button id = "btnAll" type="button" class="filter-btn btn btn-secondary active">All</button>
+          <button id = "btnW1" type="button" class="filter-btn btn btn-secondary">1</button>
+          <button id = "btnW2" type="button" class="filter-btn btn btn-secondary">2</button>
+          <button id = "btnW3" type="button" class="filter-btn btn btn-secondary">3</button>
+          <button id = "btnW4" type="button" class="filter-btn btn btn-secondary">4</button>
+          <button id = "btnW5" type="button" class="filter-btn btn btn-secondary">5</button>
+          <button id = "btnW6" type="button" class="filter-btn btn btn-secondary">6</button>
+          <button id = "btnW7" type="button" class="filter-btn btn btn-secondary">7</button>
+          <button id = "btnFractals" type="button" class="filter-btn btn btn-secondary">Fractals</button>
+          <button id = "btnStrikes" type="button" class="filter-btn btn btn-secondary">Strikes</button>
+          <button id = "btnGolem" type="button" class="filter-btn btn btn-secondary">Golems</button>
+          <button id = "btnToday" type="button" class="filter-btn btn btn-secondary">Today</button>
+          <button id = "btnWeek" type="button" class="filter-btn btn btn-secondary">Week</button>
+        </div>
+      </div>
+      <!--Table-->
+      <div id="tableFixHead" class="row justify-content-center allign-middle mb-1" style="flex: 1;">
+        <div id="tableContainer" class="col-auto flex-fill">
+          <table id="bossTable" class="table table-hover table-sm-12 text-center">
+            <thead style="position:sticky; top:0">
+              <tr>
+                <th id="testerino" class="th-sm" scope="col">Boss</th>
+                <th class="th-sm" scope="col">Success</th>
+                <th class="th-sm" scope="col">Health</th>
+                <th class="th-sm" scope="col">Date</th>
+                <th class="th-sm" scope="col">URL</th>
+              </tr>
+            </thead>
+            <tbody id="log-body">
+            </tbody>
+          </table>
+        </div>  
+      </div>
+    </div>
+  </div>
+  <script>
+    // You can also require other files to run in this process
+    require('./renderer.js')
+  </script>
+  <script>
+    var $ = jQuery = require('jquery');
+    require('datatables.net')();
+    var buttons = require('datatables.net-buttons')();
+    $(document).ready(function () {
+      table = $('#bossTable').DataTable(
+        {
+          "scrollY": "70vh",
+          "scrollResize": true,
+          "scrollCollapse": true,
+          "paging": false,
+          "ordering":true,
+          "order": [[3,"desc"]],
+          "initComplete": function(settings, json) {
+            // add a referencable class for the scrollbar
+            $('body').find('.dataTables_scrollBody').addClass("scrollbar");
+            // remove the default search since I made a better one
+            document.getElementById('bossTable_wrapper').firstChild.remove();
+          }
+        }
+        
+      );
+      $('#bossTable_search').keyup(function(){
+        table.search($(this).val()).draw();
+      })
+    });
+  </script>
+  <script>
+    require('./post-renderer.js');
+  </script>
+  
+</body>
+</html>

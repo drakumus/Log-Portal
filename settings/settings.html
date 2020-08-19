@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title><label style="color:var(--secondary)">Settings</label></title>
+    <link id ="styler" rel="stylesheet" href="../includes/styles/slate.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../includes/styles/styles.css">
+    <script>
+      require(`../model/style-loader.js`);
+    </script>
+    <script src="../includes/min-js/jquery.min.js" onload="window.$ = window.jQuery = module.exports;"></script>
+    <script src="../includes/min-js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="d-flex flex-column" style="overflow:hidden;">
+  <div id="electron-titlebar" class="drag" ></div>
+  <div id="row electron-titlebar">
+    <div style="color: var(--white); background-color:var(--primary); width: 100%; height: 100%; text-align: center; line-height: 29px; ">
+      Settings
+    </div>
+  </div>
+  <div id="body-2" class="d-flex flex-column" style="height: 100%; overflow-y: auto;">
+    <div class="wrapper container">
+      <!--Get Folder Fields-->
+      <div class="row justify-content-center mt-3">
+        <h5>Log Folder Selection</h3>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="col col-sm-9">
+          <input type="text" id="dirs" class="form-control" placeholder="Log Folder" webkitdirectory/>
+        </div>
+        <div class="col col-sm-3">
+          <button type="button" id="dirsButton" class="btn col-sm-12 btn-info">Set Log Folder</button>
+        </div>
+      </div>
+      <!--Get API Key-->
+      <div class="row justify-content-center mt-3">
+        <h5>DPS.REPORT API Key</h3>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="col col-sm-9" >
+          <input type="text" id="apiKeyText" class="form-control mt-1 mb-1" placeholder="API Key"/>
+        </div>
+        <div class="col col-sm-3" id="apiBtnContainer">
+          <button type="button" id="apiButton" class="btn col-sm-12 btn-info mt-1 mb-1">Set API Key</button>
+        </div>
+      </div>
+      <!--Style-->
+      <div class="row justify-content-center mt-3">
+        <h5>Style Selection</h3>
+      </div>
+
+      <div class="row justify-content-center mt-3 my-1">
+        <!--
+          Cerulean  Cosmo   Cyborg    Darkly    Flatly      Journal     Litera
+          Lumen     Lux     Materia   Minty     Pulse       Sandstone   Simplex
+          Sketchy   Slate   Solar     Spacelab  Superhero   United      Yeti
+        -->
+        <div class="col-md-3 mx-1 px-0">
+          <button class="btn btn-primary btn-block style-btn">Cerulean</button>
+        </div>
+        <div class="col-md-3 mx-1 px-0">
+          <button class="btn btn-primary btn-block style-btn">Cosmo</button>
+        </div>
+        <div class="col-md-3 mx-1 px-0">
+          <button class="btn btn-primary btn-block style-btn">Cyborg</button>
+        </div>
+      </div>
+      <div class="row justify-content-center mt-1 my-1">
+        <div class="col-md-3 mx-1 px-0">
+          <button class="btn btn-primary btn-block style-btn">Darkly</button>
+        </div>
+        <div class="col-md-3 mx-1 px-0">
+          <button class="btn btn-primary btn-block style-btn">Flatly</button>
+        </div>
+        <div class="col-md-3 mx-1 px-0">
+          <button class="btn btn-primary btn-block style-btn">Journal</button>
+        </div>
+      </div>
+      <div class="row justify-content-center mt-1 my-1">
+        <div class="col-md-3 mx-1 px-0">
+          <button class="btn btn-primary btn-block style-btn">Litera</button>
+        </div>
+        <div class="col-md-3 mx-1 px-0">
+          <button class="btn btn-primary btn-block style-btn">Lumen</button>
+        </div>
+        <div class="col-md-3 mx-1 px-0">
+          <button class="btn btn-primary btn-block style-btn">Lux</button>
+        </div>
+      </div>
+      <div class="row justify-content-center mt-1 my-1">
+        <div class="col-md-3 mx-1 px-0">
+          <button class="btn btn-primary btn-block style-btn">Materia</button>
+        </div>
+        <div class="col-md-3 mx-1 px-0">
+          <button class="btn btn-primary btn-block style-btn">Minty</button>
+        </div>
+        <div class="col-md-3 mx-1 px-0">
+          <button class="btn btn-primary btn-block style-btn">Pulse</button>
+        </div>
+      </div>
+      <div class="row justify-content-center mt-1 my-1">
+        <div class="col-md-3 mx-1 px-0">
+          <button class="btn btn-primary btn-block style-btn">Sandstone</button>
+        </div>
+        <div class="col-md-3 mx-1 px-0">
+          <button class="btn btn-primary btn-block style-btn">Simplex</button>
+        </div>
+        <div class="col-md-3 mx-1 px-0">
+          <button class="btn btn-primary btn-block style-btn">Sketchy</button>
+        </div>
+      </div>
+      <div class="row justify-content-center mt-1 my-1">
+        <div class="col-md-3 mx-1 px-0">
+          <button class="btn btn-primary btn-block style-btn">Slate</button>
+        </div>
+        <div class="col-md-3 mx-1 px-0">
+          <button class="btn btn-primary btn-block style-btn">Solar</button>
+        </div>
+        <div class="col-md-3 mx-1 px-0">
+          <button class="btn btn-primary btn-block style-btn">Spacelab</button>
+        </div>
+      </div>
+      <div class="row justify-content-center mt-1 my-1">
+        <div class="col-md-3 mx-1 px-0">
+          <button class="btn btn-primary btn-block style-btn">Superhero</button>
+        </div>
+        <div class="col-md-3 mx-1 px-0">
+          <button class="btn btn-primary btn-block style-btn">United</button>
+        </div>
+        <div class="col-md-3 mx-1 px-0">
+          <button class="btn btn-primary btn-block style-btn" id=test>Yeti</button>
+        </div>
+      </div>
+    </div>
+  <script>
+    // You can also require other files to run in this process
+    require('./settings-render.js')
+  </script>
+  <script>
+    $( document ).ready(function() {
+        $('[data-toggle="tooltip"]').tooltip({'placement': 'top'});
+    });
+  </script>
+</body>
+</html>

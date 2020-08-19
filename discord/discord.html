@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Log Uploader</title>
+    <link id ="styler" rel="stylesheet" href="../includes/styles/slate.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../includes/styles/styles.css">
+    <script>
+      require(`../model/style-loader.js`);
+    </script>
+    <script src="../includes/min-js/jquery.min.js" onload="window.$ = window.jQuery = module.exports;"></script>
+    <script src="../includes/min-js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="d-flex flex-column" style="overflow:hidden;">
+  <div id="electron-titlebar" class="drag" ></div>
+  <div id="row electron-titlebar">
+    <div style="color: var(--white); background-color:var(--primary); width: 100%; height: 100%; text-align: center; line-height: 29px; ">
+      Send To Discord
+    </div>
+  </div>
+
+  <div id="body-2" class="d-flex flex-column" style="height: 100%; width: 100%;">
+    <div class="col wrapper container">
+      <!--Top Row Buttons-->
+      <!--Hook Entry-->
+      <div class="row justify-content-center mt-2 mb-1">
+        <div class="row col-sm-12">
+          <input id="discordHookInput" type="search" class="form-control" placeholder="Your Discord Channel Webhook">
+        </div>
+      </div>
+      <div class="row justify-content-center mt-2 mb-2" style="position: absolute; bottom: 0; width: 100%;">
+        <div class="col-sm-12">
+          <button id = "btnSend" type="button" class="btn btn-primary btn-block">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // You can also require other files to run in this process
+    require('./discord-renderer.js')
+  </script>
+  <!--<script src="https://cdn.datatables.net/plug-ins/1.10.21/features/scrollResize/dataTables.scrollResize.min.js"></script>-->
+</body>
+</html>

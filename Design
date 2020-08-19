@@ -1,0 +1,57 @@
+Goal:
+Maintain Basic log data, link full log data to dps.report
+
+Database:
+  Tables:
+    FightStats:
+      StatsID
+      TargetDPS
+      AllDPS
+      DamageTaken
+
+      BuffUptime:
+        Might
+        Fury
+        Quickness
+        Alacrity
+        Protection
+        Regen
+        Vigor
+        Aegis
+        Stability
+        Swiftness
+        Retaliation
+        Resistance
+
+      ClassBuffUptime:
+        Banner of Strength
+        Banner of Discipline
+        Frost Spirit
+        Sun Spirit
+        Storm Spirit
+        Spotter
+        Soulcleave's Summit
+        
+      Support Stats:
+        Evades
+        Dodges
+        Downs
+        Resurrects
+        ResurrectTime
+        Died
+      
+      Mechanics (NOT FIRST ITERATION):
+        All Mechanics
+
+
+    PlayerFightPerformance:
+      PlayerID
+      Subgroup Number
+      ClassSpec
+      FightStats
+
+    Fight:
+      FightID
+      Boss Name
+      Fight Stats[Phases] = {all, phase1, phase2, phase3, ...}
+      Player Stats[Num Players] = {player1, player2, player3, ...}

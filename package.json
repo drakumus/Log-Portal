@@ -1,0 +1,35 @@
+{
+  "name": "report-logger",
+  "productName": "Report Logger",
+  "description": "My Electron application description",
+  "keywords": [],
+  "main": "./main.js",
+  "version": "1.0.0",
+  "author": "Rohan",
+  "type": "module",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.4.4",
+    "bootstrap": "^4.5.2",
+    "compare-week": "^1.0.0",
+    "custom-electron-titlebar": "^3.2.4",
+    "datatables.net": "^1.10.21",
+    "datatables.net-bs4": "^1.10.21",
+    "datatables.net-buttons": "^1.6.3",
+    "datatables.net-buttons-bs4": "^1.6.3",
+    "datatables.net-dt": "^1.10.21",
+    "discord.js": "^12.3.1",
+    "electron-titlebar": "0.0.3",
+    "jquery": "^3.5.1",
+    "move-file": "^2.0.0",
+    "path": "^0.12.7",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6",
+    "underscore": "^1.10.2"
+  },
+  "devDependencies": {
+    "electron": "8.2.5"
+  }
+}
